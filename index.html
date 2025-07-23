@@ -3,94 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Save the Date - 90 Anos da Vovó Marlene</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>Confirmação de Presença - Vovó Marlene</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             font-family: 'Playfair Display', serif;
-            background: #fffaf0;
-            color: #333;
+            background: url('fundo-textura.jpg') center/cover no-repeat fixed;
+            background-color: #fff;
+            color: #000;
             text-align: center;
             animation: fadeIn 1.5s ease;
         }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
         header {
-            background: linear-gradient(135deg, #f9d29d, #ffd89b);
-            padding: 50px 20px;
+            padding: 50px 20px 30px 20px;
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 5px solid #7b1e26;
         }
-        header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            color: #5a3e1b;
-        }
+
         header p {
-            font-size: 1.3rem;
-            color: #5a3e1b;
-        }
-        .vovo-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid #c47f00;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #7b1e26;
             margin-top: 20px;
         }
+
+        .assinatura {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin-top: 10px;
+            color: #000;
+        }
+
+        .vovo-img {
+            width: 240px;
+            height: 240px;
+            border: 8px solid #000;
+            padding: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            margin-top: 20px;
+            object-fit: cover;
+        }
+
         .content {
             padding: 30px 20px;
         }
+
         .date {
-            font-size: 2rem;
-            color: #c47f00;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-        .contador {
             font-size: 1.5rem;
-            margin-top: 10px;
-            color: #5a3e1b;
+            color: #7b1e26;
+            margin: 20px 0;
         }
+
         form {
             margin-top: 30px;
         }
+
         form input, form button {
             padding: 12px;
             margin: 10px;
             font-size: 1rem;
-            border: 1px solid #ccc;
+            border: 1px solid #7b1e26;
             border-radius: 5px;
             font-family: 'Playfair Display', serif;
         }
+
+        form input {
+            width: 250px;
+        }
+
         form button {
-            background-color: #c47f00;
+            background-color: #7b1e26;
             color: white;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
+
         form button:hover {
-            background-color: #a36200;
+            background-color: #000;
         }
+
         footer {
             margin-top: 40px;
             padding: 20px;
             font-size: 0.9rem;
-            color: #777;
+            color: #555;
+            border-top: 3px solid #7b1e26;
+            background: rgba(255, 255, 255, 0.85);
         }
     </style>
 </head>
 <body>
     <header>
         <img src="vovo-marlene.jpg" alt="Vovó Marlene" class="vovo-img">
-        <h1>Save the Date!</h1>
         <p>Venha celebrar os 90 anos da nossa querida vovó Marlene</p>
+        <div class="assinatura">Marlene Leni Levorsse de Almeida</div>
     </header>
     <div class="content">
         <p class="date">15 de Dezembro de 2025</p>
-        <p class="contador" id="contador">Carregando...</p>
-        <p>Será um momento especial de alegria e união.<br>Não perca essa comemoração histórica!</p>
+        <p>Confirme sua presença preenchendo os campos abaixo:</p>
         <form>
             <input type="text" placeholder="Seu nome" required>
             <input type="number" placeholder="Número de acompanhantes" min="0">
@@ -98,24 +116,7 @@
         </form>
     </div>
     <footer>
-        <p>Com amor, família Levorsse.</p>
+        <p>Com carinho, Família Levorsse.</p>
     </footer>
-
-    <script>
-        function atualizarContador() {
-            const dataEvento = new Date('2025-12-15T00:00:00');
-            const agora = new Date();
-            const diferenca = dataEvento - agora;
-
-            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-
-            document.getElementById('contador').innerText = `${dias}d ${horas}h ${minutos}m ${segundos}s restantes`;
-        }
-        setInterval(atualizarContador, 1000);
-        atualizarContador();
-    </script>
 </body>
 </html>
