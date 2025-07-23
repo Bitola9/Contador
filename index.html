@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save the Date - 90 Anos da Vovó</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            background: #fffaf0;
+            color: #333;
+            text-align: center;
+            animation: fadeIn 1.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header {
+            background: linear-gradient(135deg, #f9d29d, #ffd89b);
+            padding: 50px 20px;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #5a3e1b;
+        }
+        header p {
+            font-size: 1.3rem;
+            color: #5a3e1b;
+        }
+        .vovo-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #c47f00;
+            margin-top: 20px;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .date {
+            font-size: 2rem;
+            color: #c47f00;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .contador {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            color: #5a3e1b;
+        }
+        form {
+            margin-top: 30px;
+        }
+        form input, form button {
+            padding: 12px;
+            margin: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Playfair Display', serif;
+        }
+        form button {
+            background-color: #c47f00;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        form button:hover {
+            background-color: #a36200;
+        }
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="foto-vovo.jpg" alt="Vovó" class="vovo-img">
+        <h1>Save the Date!</h1>
+        <p>Venha celebrar os 90 anos da nossa querida vovó</p>
+    </header>
+    <div class="content">
+        <p class="date">15 de Dezembro de 2025</p>
+        <p class="contador" id="contador">Carregando...</p>
+        <p>Será um momento especial de alegria e união.<br>Não perca essa comemoração histórica!</p>
+        <form>
+            <input type="text" placeholder="Seu nome" required>
+            <input type="number" placeholder="Número de acompanhantes" min="0">
+            <button type="submit">Confirmar Presença</button>
+        </form>
+    </div>
+    <footer>
+        <p>Com amor, família Levorsse.</p>
+    </footer>
+
+    <script>
+        function atualizarContador() {
+            const dataEvento = new Date('2025-12-15T00:00:00');
+            const agora = new Date();
+            const diferenca = dataEvento - agora;
+
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            document.getElementById('contador').innerText = `${dias}d ${horas}h ${minutos}m ${segundos}s restantes`;
+        }
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
+    </script>
+</body>
+</html>
